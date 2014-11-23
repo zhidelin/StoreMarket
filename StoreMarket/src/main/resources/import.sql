@@ -1,0 +1,2 @@
+-- You can use this file to load seed data into the database using SQL statements
+--INSERT INTO `account`(`email`, `level`, `password`, `user_name`) VALUES ('test@test','1','test','test')
