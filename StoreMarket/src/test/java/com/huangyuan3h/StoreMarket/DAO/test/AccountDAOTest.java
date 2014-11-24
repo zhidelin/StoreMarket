@@ -36,7 +36,7 @@ public class AccountDAOTest {
 		accountDao.register(account);
 	}
 	
-	@Test
+	//@Test
 	public void testFindById() {
 
 		Account result=accountDao.FindByID(1l);
@@ -59,6 +59,20 @@ public class AccountDAOTest {
 	}
 
 	
+	@Test
+	public void testLogin()
+	{
+		Account account=new Account();
+		account.setEmail("test@test");
+		account.setUserName("testfortest");
+		account.setPassword("testfortest");
+		account.setLevel(0);
+		accountDao.register(account);
+		
+		List<Account> result=accountDao.Login("testfortest", "testfortest");
+		Assert.assertEquals(result.size(), 1);	
+		Assert.assertEquals(result.get(0).getPassword(), "testfortest");
+	}
 
 
 }

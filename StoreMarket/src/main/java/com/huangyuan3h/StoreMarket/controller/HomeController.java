@@ -1,6 +1,8 @@
 package com.huangyuan3h.StoreMarket.controller;
 
 
+import java.util.List;
+
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,15 +28,33 @@ public class HomeController {
 		
 		return "home";
 	}
-
+	
 	@RequestMapping(value = "/", method = RequestMethod.POST)
-	public String addAccount(@Valid @ModelAttribute("Login") Account account,
+	public String Login( @ModelAttribute("Login") Account account,
+			Model model) {		
+		
+		List<Account> list= accountDao.Login(account.getUserName(), account.getPassword());
+	
+		
+		return "redirect:/";
+	}
+
+	@RequestMapping(value = "/register", method = RequestMethod.POST)
+	public String addAccount(@Valid @ModelAttribute("register") Account account,
 			Model model, BindingResult result) {		
 		if (!result.hasErrors()) {
 			accountDao.register(account);
 		}
 		
 		return "redirect:/";
+	}
+	
+	@RequestMapping(value = "/register", method = RequestMethod.GET)
+	public String register(Model model)
+	{
+		model.addAttribute("register", new Account()); 
+		
+		return "register";
 	}
 
 }

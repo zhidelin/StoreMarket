@@ -2,11 +2,11 @@ package com.huangyuan3h.StoreMarket.model;
 
 
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
-
 import javax.validation.constraints.Max;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
@@ -20,21 +20,20 @@ import org.hibernate.validator.constraints.NotEmpty;
 public class Account   {
 	   
 	   @Id
-	   @GeneratedValue
+	   @GeneratedValue//主键一般这样设置就可以了@GenericGenerator是特殊主键设置方法
 	   private Long Id;
-
+	   
+	   @Column(unique=true)
 	   @NotNull
 	   @Size(min = 1, max = 25)
 	   @Pattern(regexp = "[A-Za-z ]*", message = "must contain only letters and spaces")
 	   private String UserName;
-
+	   
 	   @NotEmpty
 	   @Size(min = 1, max = 25)
 	   private String Password;
 	   
-	   
-	   @NotNull
-	   @NotEmpty
+	   @Column(unique=true)	   
 	   @Email
 	   private String Email;
 	   

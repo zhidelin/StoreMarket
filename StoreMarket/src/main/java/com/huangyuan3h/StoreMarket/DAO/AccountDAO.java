@@ -11,12 +11,14 @@ public interface AccountDAO {
 	
 	public List<Account> FindByName(String UserName);
 	
-	public Account FindByEmail(String Email);
+	public List<Account> FindByEmail(String Email);
 	
 	public List<Account> findAllOrderedByName(); 
 	
 	
 	//
 	public void register(Account account); 
+	
+	public List<Account> Login(String UserName,String Password);
 	
 }

@@ -47,13 +47,28 @@ public class AccountDAOImpl implements AccountDAO{
         CriteriaQuery<Account> criteria = cb.createQuery(Account.class);
         Root<Account> account = criteria.from(Account.class);
         Predicate condition=cb.equal(account.get("UserName"), UserName);
-        criteria.select(account).where(condition).orderBy(cb.asc(account.get("UserName")));
+        criteria.select(account).where(condition);
 		return em.createQuery(criteria).getResultList();
 	}
 
 	@Override
-	public Account FindByEmail(String Email) {
-		return em.find(Account.class, Email);
+	public List<Account> FindByEmail(String Email) {
+		CriteriaBuilder cb = em.getCriteriaBuilder();
+        CriteriaQuery<Account> criteria = cb.createQuery(Account.class);
+        Root<Account> account = criteria.from(Account.class);
+        Predicate condition=cb.equal(account.get("Email"), Email);
+        criteria.select(account).where(condition);
+		return  em.createQuery(criteria).getResultList();
+	}
+
+	@Override
+	public List<Account> Login(String UserName, String Password) {
+		CriteriaBuilder cb = em.getCriteriaBuilder();
+        CriteriaQuery<Account> criteria = cb.createQuery(Account.class);
+        Root<Account> account = criteria.from(Account.class);
+        Predicate condition=cb.and(cb.equal(account.get("UserName"), UserName),cb.equal(account.get("Password"), Password));
+        criteria.select(account).where(condition);
+		return  em.createQuery(criteria).getResultList();
 	}
 
 }

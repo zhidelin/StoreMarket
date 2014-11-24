@@ -51,30 +51,35 @@
 	</header>
 
 
-<!-- login area -->
+	<!-- login area -->
 	<section id="loginController" class="login-control">
-		<form:form commandName="Login" method="post" >
+		<form:form commandName="register" method="post" action="/register">
 			<table>
 				<tr>
-					<td><form:label path="userName">Name</form:label></td>
-					<td><form:input path="userName"/> </td>
-					<td><form:errors path="userName"></form:errors> </td>
+					<td><form:label path="userName">name</form:label></td>
+					<td><form:input path="userName" /></td>
+					<td><form:errors path="userName"></form:errors></td>
 				</tr>
-					<tr>
-					<td><form:label path="Password">password</form:label></td>
-					<td><form:input path="Password"/> </td>
-					<td><form:errors path="Password"></form:errors> </td>
+				<tr>
+					<td><form:label path="password">password</form:label></td>
+					<td><form:input path="password" /></td>
+					<td><form:errors path="password"></form:errors></td>
 				</tr>
-					<tr>
+				<tr>
+					<td><form:label path="email">email</form:label></td>
+					<td><form:input path="email" /></td>
+					<td><form:errors path="email"></form:errors></td>
+				</tr>
+				<tr>
 					<td><button>ok</button></td>
 					<td></td>
-					<td><a href='register'>register</a></td>
+					<td><a href="">login</a></td>
 				</tr>
 			</table>
 		</form:form>
 
 
-		//这里是登陆的信息 //如果已经登陆，隐藏
+
 	</section>
 
 
