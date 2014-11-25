@@ -9,6 +9,13 @@
 
 <!-- dojo support -->
 <script src="//ajax.googleapis.com/ajax/libs/dojo/1.10.1/dojo/dojo.js"></script>
+<!-- start loading jquery -->
+<link rel="stylesheet" href="<c:url value="/resources/themes/tea-green.css"/>" />
+<link rel="stylesheet" href="<c:url value="/resources/themes/jquery.mobile.icons.min.css"/>" />
+<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.3/jquery.mobile.structure-1.4.3.min.css" />
+
+<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+<script src="http://code.jquery.com/mobile/1.4.3/jquery.mobile-1.4.3.min.js"></script> 
 
 <!--  local js-->
 <script type="text/javascript"
@@ -53,7 +60,7 @@
 
 	<!-- login area -->
 	<section id="loginController" class="login-control">
-		<form:form commandName="register" method="post" action="/register">
+		<form:form commandName="register" method="post" >
 			<table>
 				<tr>
 					<td><form:label path="userName">name</form:label></td>
@@ -73,7 +80,7 @@
 				<tr>
 					<td><button>ok</button></td>
 					<td></td>
-					<td><a href="">login</a></td>
+					<td><a href='<c:url value="/"/>'>login</a></td>
 				</tr>
 			</table>
 		</form:form>

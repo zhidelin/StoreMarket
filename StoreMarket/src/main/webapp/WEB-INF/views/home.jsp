@@ -9,6 +9,13 @@
 
 <!-- dojo support -->
 <script src="//ajax.googleapis.com/ajax/libs/dojo/1.10.1/dojo/dojo.js"></script>
+<!-- start loading jquery -->
+<link rel="stylesheet" href="<c:url value="/resources/themes/tea-green.css"/>" />
+<link rel="stylesheet" href="<c:url value="/resources/themes/jquery.mobile.icons.min.css"/>" />
+<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.3/jquery.mobile.structure-1.4.3.min.css" />
+
+<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+<script src="http://code.jquery.com/mobile/1.4.3/jquery.mobile-1.4.3.min.js"></script> 
 
 <!--  local js-->
 <script type="text/javascript"
@@ -51,21 +58,27 @@
 	</header>
 
 
-<!-- login area -->
+<c:if test="${sessionScope.IsLogin.level>=1}">
+用户：${sessionScope.IsLogin.userName} 已经登陆
+</c:if>
+
+
+
+	<!-- login area -->
 	<section id="loginController" class="login-control">
-		<form:form commandName="Login" method="post" >
+		<form:form commandName="Login" method="post">
 			<table>
 				<tr>
 					<td><form:label path="userName">Name</form:label></td>
-					<td><form:input path="userName"/> </td>
-					<td><form:errors path="userName"></form:errors> </td>
+					<td><form:input path="userName" /></td>
+					<td><form:errors path="userName"></form:errors></td>
 				</tr>
-					<tr>
+				<tr>
 					<td><form:label path="Password">password</form:label></td>
-					<td><form:input path="Password"/> </td>
-					<td><form:errors path="Password"></form:errors> </td>
+					<td><form:input path="Password" /></td>
+					<td><form:errors path="Password"></form:errors></td>
 				</tr>
-					<tr>
+				<tr>
 					<td><button>ok</button></td>
 					<td></td>
 					<td><a href='register'>register</a></td>
@@ -76,10 +89,26 @@
 
 		//这里是登陆的信息 //如果已经登陆，隐藏
 	</section>
+	
 
 
 
 
+
+	<table boerder="1">
+		<tr>
+			<td>user</td>
+			<td>password</td>
+			<td>level</td>
+		</tr>
+		<c:forEach items="${accounts}" var="account">
+		<tr>
+			<td>${account.userName}</td>
+			<td>${account.password}</td>
+			<td>${account.level}</td>
+		</tr>
+			</c:forEach>
+	</table>
 
 
 </body>

@@ -3,6 +3,7 @@ package com.huangyuan3h.StoreMarket.controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,26 +26,34 @@ public class HomeController {
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String home(Model model) {
 		model.addAttribute("Login", new Account()); 
+		List<Account> accounts=accountDao.findAllOrderedByName();
+		model.addAttribute("accounts", accounts); 
+		
+		
 		
 		return "home";
 	}
 	
 	@RequestMapping(value = "/", method = RequestMethod.POST)
 	public String Login( @ModelAttribute("Login") Account account,
-			Model model) {		
+			Model model,HttpSession session) {		
 		
 		List<Account> list= accountDao.Login(account.getUserName(), account.getPassword());
-	
+		
+		session.setAttribute("IsLogin", list.get(0));
+		
+		
 		
 		return "redirect:/";
 	}
 
 	@RequestMapping(value = "/register", method = RequestMethod.POST)
-	public String addAccount(@Valid @ModelAttribute("register") Account account,
-			Model model, BindingResult result) {		
-		if (!result.hasErrors()) {
+	public String addAccount( @ModelAttribute("register") Account account,
+			Model model) {		
+		
+			account.setLevel(1);
 			accountDao.register(account);
-		}
+		
 		
 		return "redirect:/";
 	}
