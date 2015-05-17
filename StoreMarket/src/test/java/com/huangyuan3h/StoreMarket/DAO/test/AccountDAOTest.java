@@ -32,7 +32,7 @@ public class AccountDAOTest {
 		account.setEmail("test@test2");
 		account.setUserName("test");
 		account.setPassword("test");
-		account.setLevel(0);
+		
 		accountDao.register(account);
 	}
 	
@@ -49,8 +49,7 @@ public class AccountDAOTest {
 		Account account=new Account();
 		account.setEmail("test@test");
 		account.setUserName("testfortest");
-		account.setPassword("testfortest");
-		account.setLevel(0);
+		account.setPassword("testfortest");		
 		accountDao.register(account);
 		
 		List<Account> result=accountDao.FindByName("testfortest");
@@ -65,8 +64,7 @@ public class AccountDAOTest {
 		Account account=new Account();
 		account.setEmail("test@test");
 		account.setUserName("testfortest");
-		account.setPassword("testfortest");
-		account.setLevel(0);
+		account.setPassword("testfortest");		
 		accountDao.register(account);
 		
 		List<Account> result=accountDao.Login("testfortest", "testfortest");

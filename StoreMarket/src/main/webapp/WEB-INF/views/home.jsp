@@ -38,19 +38,15 @@
 			<div class="home-Image">
 				<a href="#"><img
 					src="<c:url value="/resources/image/Shamrock.png"/>" alt="index"
-					class="head-imge" />index </a>
+					class="head-imge" />XXX system-index </a>
 			</div>
 
-			<div id="mainSearch" class="home-search">
-				<input type="text" />
-				<button>ok</button>
-			</div>
+		
 
 			<div class="main-nav">
 				<ul>
-					<li><a href="">Reading</a></li>
-					<li><a href="">Group</a></li>
-					<li><a href=""> movie</a></li>
+					<li><a href="">Contact</a></li>
+					<li><a href="">Stock</a></li>					
 					<li><a href="">more</a></li>
 				</ul>
 			</div>
@@ -99,13 +95,13 @@
 		<tr>
 			<td>user</td>
 			<td>password</td>
-			<td>level</td>
+		
 		</tr>
 		<c:forEach items="${accounts}" var="account">
 		<tr>
 			<td>${account.userName}</td>
 			<td>${account.password}</td>
-			<td>${account.level}</td>
+			
 		</tr>
 			</c:forEach>
 	</table>

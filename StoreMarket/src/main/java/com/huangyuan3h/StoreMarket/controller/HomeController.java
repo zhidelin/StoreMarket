@@ -51,7 +51,7 @@ public class HomeController {
 	public String addAccount( @ModelAttribute("register") Account account,
 			Model model) {		
 		
-			account.setLevel(1);
+			
 			accountDao.register(account);
 		
 		
