@@ -82,10 +82,29 @@ public class SinaAPI {
 		return result;
 	}
 
+	
+	
+	/***
+	 * 股票名字
+	 * 今日开盘价
+	 * 昨日收盘价
+	 * 当前价格
+	 * 今日最高价
+	 * 今日最低价
+	 * 买一
+	 * 卖一
+	 * 成交的股票数
+	 * 成交金额
+	 * 
+	 * @param args
+	 */
 	public static void main(String[] args) {
-		String []x=GetStoreData("hk00941");		
+		String []x=GetStoreData("hk00493");	
+		
+		int i=1;
 		for (String string : x) {
-			System.out.println(string);
+			System.out.println(i+":"+string);
+			i++;
 		}
 
 	}

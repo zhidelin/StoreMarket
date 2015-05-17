@@ -16,9 +16,14 @@ public interface AccountDAO {
 	public List<Account> findAllOrderedByName(); 
 	
 	
-	//
+	
 	public void register(Account account); 
 	
 	public List<Account> Login(String UserName,String Password);
+	
+	
+	public void update(Account account);
+	
+	public void delete(Long ID);
 	
 }

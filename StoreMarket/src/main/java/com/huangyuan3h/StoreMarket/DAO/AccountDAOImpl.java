@@ -71,4 +71,16 @@ public class AccountDAOImpl implements AccountDAO{
 		return  em.createQuery(criteria).getResultList();
 	}
 
+	@Override
+	public void update(Account account) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void delete(Long ID) {
+		// TODO Auto-generated method stub
+		
+	}
+
 }
